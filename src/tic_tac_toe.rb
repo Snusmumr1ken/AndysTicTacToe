@@ -1,0 +1,13 @@
+#!/usr/bin/ruby
+# frozen_string_literal: true
+
+require 'telegram/bot'
+require_relative 'init'
+require_relative 'pre_init'
+
+token = 'a_great_great_secret'
+
+Telegram::Bot::Client.run(token) do |bot|
+  pre_init(bot)
+  init(bot)
+end
