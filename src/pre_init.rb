@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 def when_start(bot, message)
   mess = "Hello, #{message.from.first_name}!😊\nThis is __Tic-tac-toe game__ created by Andrii Nyvchyk.\nDo you wanna play?😏"
   answers =
     Telegram::Bot::Types::ReplyKeyboardMarkup
-      .new(keyboard: [%w(Yes), %w(No)], one_time_keyboard: true)
+    .new(keyboard: [%w[Yes], %w[No]], one_time_keyboard: true)
   bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: answers, parse_mode: 'Markdown')
 end
 
@@ -12,7 +14,7 @@ def when_yes(bot, message)
   question = 'Do you want to play for crosses or noughts?'
   answers =
     Telegram::Bot::Types::ReplyKeyboardMarkup
-      .new(keyboard: [%w(Crosses), %w(Noughts)], one_time_keyboard: true)
+    .new(keyboard: [%w[Crosses], %w[Noughts]], one_time_keyboard: true)
   bot.api.send_message(chat_id: message.chat.id, text: question, reply_markup: answers)
 end
 
