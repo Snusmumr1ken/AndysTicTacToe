@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 def when_start(bot, message)
-  mess = "Hello, #{message.from.first_name}!😊\nThis is __Tic-tac-toe game__ created by Andrii Nyvchyk.\nDo you wanna play?😏"
+  mess = "Hello, #{message.from.first_name}!😊\nThis is Tic-tac-toe game created by Andrii Nyvchyk.\nDo you wanna play?😏"
   answers =
     Telegram::Bot::Types::ReplyKeyboardMarkup
     .new(keyboard: [%w[Yes], %w[No]], one_time_keyboard: true)
-  bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: answers, parse_mode: 'Markdown')
+  bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: answers)
 end
 
 def when_yes(bot, message)
@@ -24,8 +24,8 @@ def when_no(bot, message)
   bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: kb)
 end
 
-def say_unknown(bot, message)
-  mess = "Say 'Yes' or 'No', motherfucker!"
+def say_unknown_command(bot, message)
+  mess = 'What the shit, motherfucker?!'
   bot.api.send_message(chat_id: message.chat.id, text: mess)
 end
 
@@ -40,7 +40,7 @@ def pre_init(bot)
     when 'No'
       when_no(bot, message)
     else
-      say_unknown(bot, message)
+      say_unknown_command(bot, message)
     end
   end
 end
