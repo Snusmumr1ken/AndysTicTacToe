@@ -31,6 +31,9 @@ def init(bot)
     when 'Noughts'
       say_noughts(bot, message)
       break
+    when '/restart'
+      start_again(bot, message)
+      break
     else
       say_unknown_command(bot, message)
     end
