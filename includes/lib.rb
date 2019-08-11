@@ -2,10 +2,12 @@
 
 require 'telegram/bot'
 require '../../AndysTicTacToe/src/game'
+require '../../AndysTicTacToe/src/game_loop'
 require '../../AndysTicTacToe/src/init'
 require '../../AndysTicTacToe/src/init_game_field'
 require '../../AndysTicTacToe/src/pre_init'
 require '../../AndysTicTacToe/src/start'
+require '../../AndysTicTacToe/src/place_figure'
 
 def say_unknown_command(bot, message)
   mess = 'Do you think it is funny?'

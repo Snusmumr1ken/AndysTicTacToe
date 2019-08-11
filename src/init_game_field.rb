@@ -23,8 +23,13 @@ class Map
       print "\n"
     end
   end
-end
 
-def init_game_field
-  Map.new
+  def check_if_smb_won
+    (0..2).each do |i|
+      return 'Crosses won!' if @data[0][i] == 1 && @data[1][i] == 1 && @data[2][i] == 1
+      return 'Noughts won!' if @data[0][i] == 2 && @data[1][i] == 2 && @data[2][i] == 2
+      return 'Noughts won!' if @data[i][0] == 2 && @data[i][1] == 2 && @data[i][2] == 2
+      return 'Crosses won!' if @data[i][0] == 1 && @data[i][1] == 1 && @data[i][2] == 1
+    end
+  end
 end

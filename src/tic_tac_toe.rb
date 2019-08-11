@@ -8,7 +8,9 @@ def full_game(bot)
   start(bot)
   pre_init(bot)
   init(bot)
-  run_a_game(bot)
+  map = Map.new
+  run_a_game(bot, map)
+  game_loop(bot, map)
 end
 
 Telegram::Bot::Client.run(token) do |bot|

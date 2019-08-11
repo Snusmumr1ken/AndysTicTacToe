@@ -31,7 +31,7 @@ def init(bot)
     when 'Noughts'
       say_noughts(bot, message)
       break
-    when 'stop'
+    when '/stop'
       stop(bot, message)
     when '/restart'
       start_again(bot, message)
