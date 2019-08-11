@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require '../includes/lib'
-token = '810797047:AAHJ__oVXVBP6teg1i3hI4I48xsBcxZQexg'
+token = 'token'
 
 def start_again(bot, message)
   mess = 'Do you really want to start again?'
