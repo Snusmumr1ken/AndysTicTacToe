@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require '../includes/lib'
-token = '810797047:AAHJ__oVXVBP6teg1i3hI4I48xsBcxZQexg'
+token = 'token'
 
 def full_game(bot)
   start(bot)
