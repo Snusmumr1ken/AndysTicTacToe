@@ -24,7 +24,7 @@ class Map
     end
   end
 
-  def check_if_smb_won
+  def check_game_status
     (0..2).each do |i|
       return 'Crosses won!' if @data[0][i] == 1 && @data[1][i] == 1 && @data[2][i] == 1
       return 'Noughts won!' if @data[0][i] == 2 && @data[1][i] == 2 && @data[2][i] == 2
