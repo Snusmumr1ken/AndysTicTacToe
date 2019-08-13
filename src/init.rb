@@ -27,10 +27,10 @@ def init(bot)
     case message.text
     when 'Crosses'
       say_crosses(bot, message)
-      break
+      return 1
     when 'Noughts'
       say_noughts(bot, message)
-      break
+      return 2
     when '/stop'
       stop(bot, message)
     when '/restart'

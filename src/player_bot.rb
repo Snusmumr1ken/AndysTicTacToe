@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Player_bot
-  def initialize
-    @figure = 2
+  def initialize(user_figure)
+    @figure = 2 if user_figure == 1
+    @figure = 1 if user_figure == 2
   end
 
   def easy_move(map)
@@ -14,6 +15,6 @@ class Player_bot
         end
       end
     end
-    0        # there is no place to move
+    0                 # there is no place to move
   end
 end

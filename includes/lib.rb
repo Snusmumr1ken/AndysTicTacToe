@@ -8,6 +8,8 @@ require '../../AndysTicTacToe/src/init_game_field'
 require '../../AndysTicTacToe/src/pre_init'
 require '../../AndysTicTacToe/src/start'
 require '../../AndysTicTacToe/src/place_figure'
+require '../../AndysTicTacToe/src/player_bot'
+require '../../AndysTicTacToe/src/user_class'
 
 def say_unknown_command(bot, message)
   mess = 'Do you think it is funny?'
