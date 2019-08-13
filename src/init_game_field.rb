@@ -31,6 +31,12 @@ class Map
       return 'Noughts won!' if @data[i][0] == 2 && @data[i][1] == 2 && @data[i][2] == 2
       return 'Crosses won!' if @data[i][0] == 1 && @data[i][1] == 1 && @data[i][2] == 1
     end
+
+    return 'Crosses won!' if @data[0][0] == 1 && @data[1][1] == 1 && @data[2][2] == 1
+    return 'Noughts won!' if @data[0][0] == 2 && @data[1][1] == 2 && @data[2][2] == 2
+    return 'Crosses won!' if @data[0][2] == 1 && @data[1][1] == 1 && @data[2][0] == 1
+    return 'Noughts won!' if @data[0][2] == 2 && @data[1][1] == 2 && @data[2][0] == 2
+
     (0..2).each do |i|
       (0..2).each do |j|
         return 'Game continue...' if @data[i][j].zero?
