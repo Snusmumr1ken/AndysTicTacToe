@@ -6,6 +6,10 @@ class Player_bot
     @figure = 1 if user_figure == 2
   end
 
+  def read_figure
+    @figure
+  end
+
   def easy_move(map)
     (0..2).each do |i|
       (0..2).each do |j|

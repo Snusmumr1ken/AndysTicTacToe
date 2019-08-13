@@ -29,10 +29,11 @@ def show_game_field(bot, message, map)
   bot.api.send_message(chat_id: message.chat.id, text: build_map_str(map), reply_markup: answers)
 end
 
-def run_a_game(bot, map)
+def run_a_game(bot, map, easy_bot)
   bot.listen do |message|
     case message.text
     when 'Ready'
+      easy_bot.easy_move(map) if easy_bot.read_figure == 1
       show_game_field(bot, message, map)
       break
     when '/stop'
