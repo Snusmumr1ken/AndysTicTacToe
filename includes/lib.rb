@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 require 'telegram/bot'
-require '../../AndysTicTacToe/src/game'
-require '../../AndysTicTacToe/src/game_loop'
-require '../../AndysTicTacToe/src/init'
+require '../../AndysTicTacToe/src/pvp'
+require '../../AndysTicTacToe/src/run_pve'
+require '../../AndysTicTacToe/src/pve_loop'
+require '../../AndysTicTacToe/src/init_pve'
 require '../../AndysTicTacToe/src/init_game_field'
-require '../../AndysTicTacToe/src/pre_init'
+require '../../AndysTicTacToe/src/pvp_or_pve'
 require '../../AndysTicTacToe/src/start'
 require '../../AndysTicTacToe/src/place_figure'
 require '../../AndysTicTacToe/src/player_bot'

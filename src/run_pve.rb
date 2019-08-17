@@ -29,7 +29,7 @@ def show_game_field(bot, message, map)
   bot.api.send_message(chat_id: message.chat.id, text: build_map_str(map), reply_markup: answers)
 end
 
-def run_a_game(bot, map, easy_bot)
+def run_pve(bot, map, easy_bot)
   bot.listen do |message|
     case message.text
     when 'Ready'

@@ -4,7 +4,7 @@
 # i == 1 - крестики выиграли
 # i == 2 - нолики выиграли
 
-def say_end(bot, message, i)
+def pve_end(bot, message, i)
   kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
   mess =  case i
           when 0
@@ -12,7 +12,7 @@ def say_end(bot, message, i)
           when 1
             "End of the game, #{message.from.first_name}!\nCrosses won!"
           when 2
-            "End of the game, #{message.from.first_name}!\nNoughtswon!\n"
+            "End of the game, #{message.from.first_name}!\nNoughts won!\n"
           end
   bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: kb)
   mess = 'Do you want to play again?'
@@ -27,17 +27,17 @@ def check_end(bot, message, map)
   res = map.check_game_status
   if res == 'Crosses won!'
     show_game_field(bot, message, map)
-    say_end(bot, message, 1)
+    pve_end(bot, message, 1)
   elsif res == 'Noughts won!'
     show_game_field(bot, message, map)
-    say_end(bot, message, 2)
+    pve_end(bot, message, 2)
   elsif res == 'No space'
     show_game_field(bot, message, map)
-    say_end(bot, message, 0)
+    pve_end(bot, message, 0)
   end
 end
 
-def tick(bot, message, map, easy_bot, user)
+def pve_tick(bot, message, map, easy_bot, user)
   user.move(map, message.text)
   check_end(bot, message, map)
   easy_bot.easy_move(map)
@@ -47,7 +47,7 @@ def tick(bot, message, map, easy_bot, user)
   bot.api.send_message(chat_id: message.chat.id, text: mess)
 end
 
-def game_loop(bot, map, easy_bot, user)
+def pve_loop(bot, map, easy_bot, user)
   bot.listen do |message|
     case message.text
     when '/stop'
@@ -55,7 +55,7 @@ def game_loop(bot, map, easy_bot, user)
     when '/restart'
       start_again(bot, message)
     else
-      tick(bot, message, map, easy_bot, user)
+      pve_tick(bot, message, map, easy_bot, user)
     end
   end
 end

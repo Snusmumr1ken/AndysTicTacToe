@@ -5,6 +5,10 @@ class User
     @figure = figure
   end
 
+  def read_figure
+    @figure
+  end
+
   def move(map, mess)
     case mess
     when '1'

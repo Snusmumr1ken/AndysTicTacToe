@@ -6,11 +6,12 @@ def start(bot)
     when '/start'
       kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
       bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}!😊", reply_markup: kb)
-      mess = "This is Tic-tac-toe game created by Andrii Nyvchyk.\nDo you wanna play?😏"
+      mess1 = "This is Tic-tac-toe game created by Andrii Nyvchyk.\n\nHow do you wanna play?😏\n\n"
+      mess2 = "PVP - Player versus Player\nPVE - Player versus Computer"
       answers =
         Telegram::Bot::Types::ReplyKeyboardMarkup
-          .new(keyboard: [%w[Yes], %w[No]], one_time_keyboard: true)
-      bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: answers)
+          .new(keyboard: [%w[PVP], %w[PVE]], one_time_keyboard: true)
+      bot.api.send_message(chat_id: message.chat.id, text: mess1 + mess2, reply_markup: answers)
       break
     end
   end
