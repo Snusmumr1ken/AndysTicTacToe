@@ -15,6 +15,31 @@ class Map
     @data[x][y] = value
   end
 
+  def check_if_field_empty(dot)
+    case dot
+    when '1'
+      return 1 if @data[0][0].zero?
+    when '2'
+      return 1 if @data[0][1].zero?
+    when '3'
+      return 1 if @data[0][2].zero?
+    when '4'
+      return 1 if @data[1][0].zero?
+    when '5'
+      return 1 if @data[1][1].zero?
+    when '6'
+      return 1 if @data[1][2].zero?
+    when '7'
+      return 1 if @data[2][0].zero?
+    when '8'
+      return 1 if @data[2][1].zero?
+    when '9'
+      return 1 if @data[2][2].zero?
+    else
+      0
+    end
+  end
+
   def output
     (0..2).each do |i|
       (0..2).each do |j|

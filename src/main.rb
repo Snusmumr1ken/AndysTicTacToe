@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require '../includes/lib'
-token = '810797047:AAHJ__oVXVBP6teg1i3hI4I48xsBcxZQexg'
+token = 'token'
 
 def pve(bot, map)
   players_figure = init(bot)
@@ -15,7 +15,6 @@ end
 def pvp(bot, map)
   user1 = User.new(1)
   user2 = User.new(2)
-  first_player_move(bot, user1, map)
   pvp_loop(bot, map, user1, user2)
 end
 

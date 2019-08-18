@@ -55,7 +55,9 @@ def pve_loop(bot, map, easy_bot, user)
     when '/restart'
       start_again(bot, message)
     else
-      pve_tick(bot, message, map, easy_bot, user)
+      if map.check_if_field_empty(message.text) == 1
+        pve_tick(bot, message, map, easy_bot, user)
+      end
     end
   end
 end
