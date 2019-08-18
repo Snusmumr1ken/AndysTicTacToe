@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'telegram/bot'
+require '../../AndysTicTacToe/src/show_map'
 require '../../AndysTicTacToe/src/pvp'
 require '../../AndysTicTacToe/src/run_pve'
 require '../../AndysTicTacToe/src/pve_loop'
