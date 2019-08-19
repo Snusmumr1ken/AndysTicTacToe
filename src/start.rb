@@ -13,6 +13,8 @@ def start(bot)
           .new(keyboard: [%w[PVP], %w[PVE]], one_time_keyboard: true)
       bot.api.send_message(chat_id: message.chat.id, text: mess1 + mess2, reply_markup: answers)
       break
+    else
+      bot.api.send_message(chat_id: message.chat.id, text: 'Please, write /start now.')
     end
   end
 end

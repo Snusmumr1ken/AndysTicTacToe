@@ -40,7 +40,7 @@ end
 def pve_tick(bot, message, map, easy_bot, user)
   user.move(map, message.text)
   check_end(bot, message, map)
-  easy_bot.easy_move(map)
+  easy_bot.hard_move(map)
   check_end(bot, message, map)
   show_game_field(bot, message, map)
   mess = "Your move, #{message.from.first_name}!"
