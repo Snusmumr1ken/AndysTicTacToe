@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
 require 'telegram/bot'
-require '../../AndysTicTacToe/src/show_map'
-require '../../AndysTicTacToe/src/pvp'
-require '../../AndysTicTacToe/src/run_pve'
-require '../../AndysTicTacToe/src/pve_loop'
-require '../../AndysTicTacToe/src/init_pve'
-require '../../AndysTicTacToe/src/init_game_field'
-require '../../AndysTicTacToe/src/pvp_or_pve'
-require '../../AndysTicTacToe/src/start'
-require '../../AndysTicTacToe/src/place_figure'
-require '../../AndysTicTacToe/src/player_bot'
-require '../../AndysTicTacToe/src/user_class'
+require '../src/show_map'
+require '../src/pvp'
+require '../src/pve_loop'
+require '../src/init_pve'
+require '../src/init_game_field'
+require '../src/pvp_or_pve'
+require '../src/start'
+require '../src/place_figure'
+require '../src/player_bot'
+require '../src/user_class'
 
 def say_unknown_command(bot, message)
   mess = 'Do you think it is funny?'
