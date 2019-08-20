@@ -25,6 +25,15 @@ def check_all(bd, id)
   0
 end
 
+def get_iter(bd, id)
+  iterator = 0
+  bd.each do |i|
+    return iterator if i[0] == id
+
+    iterator += 1
+  end
+end
+
 def change_status(bd, id, status)
   bd.each do |i|
     if i[0] == id

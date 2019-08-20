@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require './show_map'
+
 def the_end(bot, message, i, bd)
   change_status(bd, message.chat.id, 'start')
   kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)

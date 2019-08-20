@@ -60,6 +60,10 @@ class Player_bot
     enemy = @figure == 1 ? 2 : 1
     return 1 if try_to_move(map, enemy) == 1
 
+    if map[1, 1].zero?
+      map[1, 1] = @figure
+      return 1
+    end
     easy_move(map)
   end
 
