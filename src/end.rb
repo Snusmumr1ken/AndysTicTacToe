@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
-# i == 0 - ничья
-# i == 1 - крестики выиграли
-# i == 2 - нолики выиграли
-
-def pve_end(bot, message, i)
+def the_end(bot, message, i, bd)
+  change_status(bd, message.chat.id, 'start')
   kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
   mess =  case i
           when 0
@@ -20,44 +17,22 @@ def pve_end(bot, message, i)
     Telegram::Bot::Types::ReplyKeyboardMarkup
       .new(keyboard: [%w[/start]], one_time_keyboard: true)
   bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: answers)
-  full_game(bot)
 end
 
-def check_end(bot, message, map)
+def check_end(bot, message, map, bd)
   res = map.check_game_status
   if res == 'Crosses won!'
     show_game_field(bot, message, map)
-    pve_end(bot, message, 1)
+    the_end(bot, message, 1, bd)
+    return 1
   elsif res == 'Noughts won!'
     show_game_field(bot, message, map)
-    pve_end(bot, message, 2)
+    the_end(bot, message, 2, bd)
+    return 1
   elsif res == 'No space'
     show_game_field(bot, message, map)
-    pve_end(bot, message, 0)
+    the_end(bot, message, 0, bd)
+    return 1
   end
-end
-
-def pve_tick(bot, message, map, easy_bot, user)
-  user.move(map, message.text)
-  check_end(bot, message, map)
-  easy_bot.hard_move(map)
-  check_end(bot, message, map)
-  show_game_field(bot, message, map)
-  mess = "Your move, #{message.from.first_name}!"
-  bot.api.send_message(chat_id: message.chat.id, text: mess)
-end
-
-def pve_loop(bot, map, easy_bot, user)
-  bot.listen do |message|
-    case message.text
-    when '/stop'
-      stop(bot, message)
-    when '/restart'
-      start_again(bot, message)
-    else
-      if map.check_if_field_empty(message.text) == 1
-        pve_tick(bot, message, map, easy_bot, user)
-      end
-    end
-  end
+  0
 end

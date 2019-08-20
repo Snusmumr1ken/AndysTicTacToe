@@ -3,8 +3,13 @@
 # Это класс описывающий карту на которой будут распологаться
 # все игровые эелементы: 0 - клетка пустая, 1 - крестики, 2 - нолики
 class Map
-  def initialize
+  def initialize(id)
+    @id = id
     @data = Array.new(3) { Array.new(3, 0) }
+  end
+
+  def read_id
+    @id
   end
 
   def [](x, y)
@@ -15,7 +20,7 @@ class Map
     @data[x][y] = value
   end
 
-  def check_if_field_empty(dot)
+  def dot_empty?(dot)
     case dot
     when '1'
       return 1 if @data[0][0].zero?

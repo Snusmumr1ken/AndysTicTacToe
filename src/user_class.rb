@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require './place_figure'
+
 class User
   def initialize(figure)
     @figure = figure
