@@ -2,6 +2,22 @@
 
 require './show_map'
 
+def start(bd, bot, message)
+  if check_status(bd, message.chat.id, 'start') == 1
+    kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
+    bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}!😊", reply_markup: kb)
+    mess1 = "This is Tic-tac-toe game created by Andrii Nyvchyk.\n\nHow do you wanna play?😏\n\n"
+    mess2 = "PVP - Player versus Player\nPVE - Player versus Computer"
+    answers =
+      Telegram::Bot::Types::ReplyKeyboardMarkup
+        .new(keyboard: [%w[PVP], %w[PVE]], one_time_keyboard: true)
+    bot.api.send_message(chat_id: message.chat.id, text: mess1 + mess2, reply_markup: answers)
+    change_status(bd, message.chat.id, 'pvp_or_pve')
+  else
+    bot.api.send_message(chat_id: message.chat.id, text: 'You are not on the start layer to write /start.')
+  end
+end
+
 def the_end(bot, message, i, bd)
   change_status(bd, message.chat.id, 'start')
   kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
@@ -17,7 +33,7 @@ def the_end(bot, message, i, bd)
   mess = 'Do you want to play again?'
   answers =
     Telegram::Bot::Types::ReplyKeyboardMarkup
-      .new(keyboard: [%w[/start]], one_time_keyboard: true)
+      .new(keyboard: [%w[Yes], %w[No]], one_time_keyboard: true)
   bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: answers)
 end
 
