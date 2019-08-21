@@ -1,9 +1,9 @@
 #!/usr/bin/ruby
 # frozen_string_literal: true
 
-require '../lib/lib'
+require 'lib/lib'
 
-token = '810797047:AAEE_hg_Sli9YRmfAfw4uXmr_MPd8yw8-Es'
+token = 'token'
 bd = []
 maps = []
 user1 = User.new(1)
