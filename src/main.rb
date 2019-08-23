@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 # frozen_string_literal: true
 
-require 'lib/lib'
+require '../lib/lib'
 
 token = 'token'
 bd = []
