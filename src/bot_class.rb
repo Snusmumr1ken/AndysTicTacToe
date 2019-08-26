@@ -10,6 +10,10 @@ class Player_bot
     @figure
   end
 
+  def set_figure(new_figure)
+    @figure = new_figure
+  end
+
   def easy_move(map)
     (0..2).each do |i|
       (0..2).each do |j|

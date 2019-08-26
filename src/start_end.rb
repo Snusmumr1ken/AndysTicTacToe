@@ -20,6 +20,8 @@ end
 
 def the_end(bot, message, i, bd)
   change_status(bd, message.chat.id, 'start')
+  iter = get_iter(bd, message.chat.id)
+  bd[iter][2] = 0
   kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
   mess =  case i
           when 0
