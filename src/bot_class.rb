@@ -14,6 +14,18 @@ class Player_bot
     @figure = new_figure
   end
 
+  def random_move(map)
+    (0..100).each do
+      i = rand(3)
+      j = rand(3)
+      if map[i, j].zero?
+        map[i, j] = @figure
+	return 1
+      end
+    end
+    0
+  end
+
   def easy_move(map)
     (0..2).each do |i|
       (0..2).each do |j|
@@ -64,11 +76,7 @@ class Player_bot
     enemy = @figure == 1 ? 2 : 1
     return 1 if try_to_move(map, enemy) == 1
 
-    if map[1, 1].zero?
-      map[1, 1] = @figure
-      return 1
-    end
-    easy_move(map)
+    random_move(map)
   end
 
   def try_to_move(map, fig)
