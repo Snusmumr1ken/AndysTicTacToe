@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 def mv(map, mess, figure)
   case mess
   when '1'
@@ -21,6 +20,39 @@ def mv(map, mess, figure)
     place_8(map, figure)
   when '9'
     place_9(map, figure)
+  end
+end
+
+def set_crosses(bd, bot, message, maps, pve_bot)
+  if check_status(bd, message.chat.id, 'cr_or_no') == 1
+    pve_bot.set_figure(2)
+    i = get_iter(bd, message.chat.id)
+    bd[i][2] = 1
+    change_status(bd, message.chat.id, "pve")
+    map = Map.new(message.chat.id)
+    maps << map
+    kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
+    bot.api.send_message(chat_id: message.chat.id, text: "Great!\nYou will play for crosses!", reply_markup: kb)
+    show_game_field(bot, message, map)
+  else
+    bot.api.send_message(chat_id: message.chat.id, text: 'You are not choosing how to play.')
+  end
+end
+
+def set_noughts(bd, bot, message, maps, pve_bot)
+  if check_status(bd, message.chat.id, 'cr_or_no') == 1
+    i = get_iter(bd, message.chat.id)
+    bd[i][2] = 2
+    change_status(bd, message.chat.id, "pve")
+    map = Map.new(message.chat.id)
+    maps << map
+    pve_bot.set_figure(1)
+    pve_bot.hard_move(map)
+    kb = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true)
+    bot.api.send_message(chat_id: message.chat.id, text: "Great!\nYou will play for noughts!", reply_markup: kb)
+    show_game_field(bot, message, map)
+  else
+    bot.api.send_message(chat_id: message.chat.id, text: 'You are not choosing how to play.')
   end
 end
 
