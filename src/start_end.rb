@@ -10,7 +10,7 @@ def start(bd, bot, message)
     mess2 = "PVP - Player versus Player\nPVE - Player versus Computer"
     answers =
       Telegram::Bot::Types::ReplyKeyboardMarkup
-        .new(keyboard: [%w[PVP], %w[PVE]], one_time_keyboard: true)
+        .new(keyboard: [%w[PVP], %w[PVE]])
     bot.api.send_message(chat_id: message.chat.id, text: mess1 + mess2, reply_markup: answers)
     change_status(bd, message.chat.id, 'pvp_or_pve')
   else
@@ -35,7 +35,7 @@ def the_end(bot, message, i, bd)
   mess = 'Do you want to play again?'
   answers =
     Telegram::Bot::Types::ReplyKeyboardMarkup
-      .new(keyboard: [%w[Yes], %w[No]], one_time_keyboard: true)
+      .new(keyboard: [%w[Yes], %w[No]])
   bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: answers)
 end
 

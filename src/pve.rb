@@ -62,7 +62,7 @@ def pve_setup(bd, bot, message)
     mess = 'Do you want to play for crosses or noughts?'
     ans =
       Telegram::Bot::Types::ReplyKeyboardMarkup
-        .new(keyboard: [%w[Crosses], %w[Noughts]], one_time_keyboard: true)
+        .new(keyboard: [%w[Crosses], %w[Noughts]])
     bot.api.send_message(chat_id: message.chat.id, text: mess, reply_markup: ans)
   else
     bot.api.send_message(chat_id: message.chat.id, text: 'STATUS PVP_OR_PVE_NEEDED')

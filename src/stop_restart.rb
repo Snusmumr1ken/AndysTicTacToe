@@ -9,7 +9,7 @@ def restart(bot, bd, message, maps)
   mess2 = "PVP - Player versus Player\nPVE - Player versus Computer"
   answers =
     Telegram::Bot::Types::ReplyKeyboardMarkup
-      .new(keyboard: [%w[PVP], %w[PVE]], one_time_keyboard: true)
+      .new(keyboard: [%w[PVP], %w[PVE]])
   bot.api.send_message(chat_id: message.chat.id, text: mess1 + mess2, reply_markup: answers)
 end
 
