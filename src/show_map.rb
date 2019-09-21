@@ -26,5 +26,6 @@ def show_game_field(bot, message, map)
   answers =
     Telegram::Bot::Types::ReplyKeyboardMarkup
       .new(keyboard: [%w(1 2 3), %w(4 5 6), %w(7 8 9)])
-  bot.api.send_message(chat_id: message.chat.id, text: build_map_str(map), reply_markup: answers)
+  mess_map = build_map_str(map)
+  bot.api.send_message(chat_id: message.chat.id, text: mess_map, reply_markup: answers)
 end
