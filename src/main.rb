@@ -3,7 +3,7 @@
 
 require '../lib/lib'
 
-token = '837918300:AAHXIc36vO8_LyOWX_XnCtNdshdV_HdJcbY'
+token = 'token'
 bd = []
 maps = []
 user1 = User.new(1)
