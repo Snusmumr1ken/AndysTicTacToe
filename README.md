@@ -6,7 +6,7 @@ It is a Telegram bot for playing Tic-Tac-Toe game.
 
 ### How is it done?
 
-It is written in Ruby with Andrii Nyvchyk's hands. And as a Telegram API I've used [this Ruby wrapper](https://github.com/atipugin/telegram-bot-ruby), which was created by @atipugin.
+It is written in Ruby with Andrii Nyvchyk's hands. And as a Telegram API I've used [this Ruby wrapper](https://github.com/atipugin/telegram-bot-ruby), which was created by [@atipugin](https://github.com/atipugin).
 
 ---
 
@@ -25,5 +25,6 @@ Yes, you could do it!
 1. You are awesome! Now you have your own Tic-Tac-Toe game!
 
 ### Screenshots
-<img src="resources/example1.png" alt="Example screenshot 1" width="448" height="320">
-<img src="resources/example2.png" alt="Example screenshot 2" width="448" height="566">
+* <img src="resources/example1.png" alt="Example screenshot 1" width="448" height="320">
+* <img src="resources/example2.png" alt="Example screenshot 2" width="448" height="566">
+* <img src="resources/example.gif" alt="Example gif" width="432" height="768">
