@@ -1,12 +1,6 @@
 ### What is "AndysTicTacToe"?
 
-It is a Telegram bot for playing Tic-Tac-Toe game. 
-
----
-
-### How could I test it?
-
-Just navigate to the url: https://telegram.me/andys_tic_tac_toe_bot :)
+It is a Telegram bot for playing Tic-Tac-Toe game.
 
 ---
 
